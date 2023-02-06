@@ -63,11 +63,13 @@ func main(){
 		} else {
 			column := ""
 			for i := 0; i < len(header); i++ {
-				if(record[i] != "CarbonImmutable::now()"){
-				    column = column + "                    '" + header[i] + "' => '" + record[i] + "',\n"
-				} else {
-				    column = column + "                    '" + header[i] + "' => " + record[i] + ",\n"
-				}
+                // カラムによって、現在日時などPHPの処理を入れたい場合は分岐処理を入れる
+                // if (record[i] == "CarbonImmutable::now()") {
+                //     column = column + "                    '" + header[i] + "' => '" + record[i] + "',\n"
+				// } else {
+				//    column = column + "                    '" + header[i] + "' => " + record[i] + ",\n"
+				// }
+                column = column + "                    '" + header[i] + "' => '" + record[i] + "',\n"
 			}
 			recordList = recordList +
             "            " + strconv.Itoa(count) + " =>\n" +

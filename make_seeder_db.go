@@ -18,7 +18,7 @@ func main(){
     tableName := flag.String("table", "", "テーブル名")
     flag.Parse()
 
-    // DB接続
+    // DB接続（環境に合わせて変更する）
     dbconf := "root:root@tcp(127.0.0.1:53306)/sample?charset=utf8mb4"
     db, err := sql.Open("mysql", dbconf)
     // 接続が終了したらクローズする
